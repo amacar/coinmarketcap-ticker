@@ -1,2 +1,2 @@
 # CoinmarketCap Ticker
-Coinmarketcap ticket written using ReactJS.
+Coinmarketcap ticker written using ReactJS.
