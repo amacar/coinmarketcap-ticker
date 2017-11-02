@@ -4,13 +4,14 @@ import CoinApi from '../core/CoinApi';
 class CoinView extends Component {
 	constructor(props) {
     super(props);
-	console.log(props.match.params.id);
 	this.coin = CoinApi.get(props.match.params.id);
 	this.coin = this.coin || {};
   }
 	
   render() {
     return (
+	  <div>
+	  <h2>{this.coin.name}</h2>
 	  <dl>
 	    <dt>Rank</dt>
 	    <dd>{this.coin.rank}</dd>
@@ -37,6 +38,7 @@ class CoinView extends Component {
 		<dt>Available supply</dt>
 		<dd>{this.coin.available_supply}</dd>
 	  </dl>
+	  </div>
     );
   }
 }
