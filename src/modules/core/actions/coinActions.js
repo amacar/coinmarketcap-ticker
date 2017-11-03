@@ -12,12 +12,12 @@ export const receiveCoins = (json) => ({
 })
 
 const fetchCoins = () => dispatch => {
-  dispatch(requestCoins())
+  dispatch(requestCoins());
   return fetch('https://api.coinmarketcap.com/v1/ticker/?convert=USD&limit=100')
     .then(response => response.json())
     .then(json => dispatch(receiveCoins(json)))
 }
 
 export const fetchCoinsIfNeeded = () => (dispatch, getState) => {
-  return dispatch(fetchCoins())
+  return dispatch(fetchCoins());
 }

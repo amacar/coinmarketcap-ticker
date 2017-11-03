@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import CoinRow from './CoinRow';
+import Refresh from './Refresh';
 import './css/CryptoMarket.css';
 
 class CoinList extends Component {
@@ -9,6 +10,7 @@ class CoinList extends Component {
   render() {
     return (
 	  <div>
+	    <Refresh />
         <table className="coin-list">
 		  <thead>
 		    <tr>

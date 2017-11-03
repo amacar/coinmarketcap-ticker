@@ -25,12 +25,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    coins: state.coins,
-    isFetching: state.isFetching,
-    lastUpdated: state.lastUpdated
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect()(App));

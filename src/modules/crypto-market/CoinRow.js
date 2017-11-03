@@ -20,7 +20,7 @@ class CoinRow extends Component {
 	    <td><Link to={`/coin/${this.props.coin.id}`}>{this.props.coin.rank}</Link></td>
 		<td>{this.props.coin.symbol}</td>
 		<td>{this.props.coin.price_usd}</td>
-		<td>{this.props.coin.percent_change_24h} %</td>
+		<td className={this.props.coin.percent_change_24h >= 0 ? 'positive' : 'negative'}>{this.props.coin.percent_change_24h} %</td>
 	  </tr>
     );
   }
