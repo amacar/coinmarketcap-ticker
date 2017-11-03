@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class CoinRow extends Component {
 	constructor(props) {
@@ -17,13 +17,13 @@ class CoinRow extends Component {
   render() {
     return (
 	  <tr>
-	    <td><Link to={'/coin/' + this.props.coin.id}>{this.props.coin.rank}</Link></td>
+	    <td><Link to={`/coin/${this.props.coin.id}`}>{this.props.coin.rank}</Link></td>
 		<td>{this.props.coin.symbol}</td>
 		<td>{this.props.coin.price_usd}</td>
-		<td>{this.props.coin.percent_change_24h}</td>
+		<td>{this.props.coin.percent_change_24h} %</td>
 	  </tr>
     );
   }
 }
 
-export default CoinRow;
+export default withRouter(CoinRow);

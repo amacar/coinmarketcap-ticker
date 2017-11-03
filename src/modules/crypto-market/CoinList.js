@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import CoinRow from './CoinRow';
-import CoinApi from '../core/CoinApi';
+import './css/CryptoMarket.css';
 
 class CoinList extends Component {
   
   render() {
     return (
 	  <div>
-        <table>
+        <table className="coin-list">
 		  <thead>
 		    <tr>
 			  <th>Rank</th>
 			  <th>Symbol</th>
 			  <th>Price</th>
-			  <th>24h change</th>
+			  <th>Change (24 hour)</th>
 			</tr>
 		  </thead>
 		  <tbody>
-		    {CoinApi.all().map(function(coin, i){
+		    {this.props.coins.map(function(coin, i){
               return <CoinRow coin={coin} key={i}/>
              })
 			}
@@ -28,4 +30,12 @@ class CoinList extends Component {
   }
 }
 
-export default CoinList;
+const mapStateToProps = state => {
+  return {
+    coins: state.coinsReducer.coins || [],
+    isFetching: state.coinsReducer.isFetching,
+    lastUpdated: state.coinsReducer.lastUpdated
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(CoinList));

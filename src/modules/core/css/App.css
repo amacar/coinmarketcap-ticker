@@ -1,4 +1,4 @@
-.App {
+.center {
   text-align: center;
 }
 
@@ -10,4 +10,18 @@
 
 .App-title {
   font-size: 1.5em;
+}
+
+dl.inline dd {
+  display: inline;
+  margin: 0;
+}
+dl.inline dd:after{
+  display: block;
+  content: '';
+}
+dl.inline dt{
+  display: inline-block;
+  padding: 2px 10px 2px 5px;
+  font-weight: bold;
 }

@@ -1,46 +1,50 @@
 import React, { Component } from 'react';
-import CoinApi from '../core/CoinApi';
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class CoinView extends Component {
-	constructor(props) {
-    super(props);
-	this.coin = CoinApi.get(props.match.params.id);
-	this.coin = this.coin || {};
-  }
 	
   render() {
     return (
 	  <div>
-	  <h2>{this.coin.name}</h2>
-	  <dl>
+	  <h2>{this.props.coin.name}</h2>
+	  <dl className="inline">
 	    <dt>Rank</dt>
-	    <dd>{this.coin.rank}</dd>
+	    <dd>{this.props.coin.rank}</dd>
 		<dt>Name</dt>
-	    <dd>{this.coin.name}</dd>
+	    <dd>{this.props.coin.name}</dd>
 		<dt>Symbol</dt>
-		<dd>{this.coin.symbol}</dd>
+		<dd>{this.props.coin.symbol}</dd>
 		<dt>Price</dt>
-		<dd>{this.coin.price_usd}</dd>
+		<dd>{this.props.coin.price_usd}</dd>
 		<dt>24h Volume</dt>
-		<dd>{this.coin['24h_volume_usd']}</dd>
+		<dd>{this.props.coin['24h_volume_usd']}</dd>
 		<dt>Market Cap</dt>
-		<dd>{this.coin.market_cap_usd}</dd>
+		<dd>{this.props.coin.market_cap_usd}</dd>
 		<dt>Price (BTC)</dt>
-		<dd>{this.coin.price_btc}</dd>
-		<dt>Change 1 hour</dt>
-		<dd>{this.coin.percent_change_1h}</dd>
-		<dt>Change 24 hour</dt>
-		<dd>{this.coin.percent_change_24h}</dd>
-		<dt>Change 7 days</dt>
-		<dd>{this.coin.percent_change_7d}</dd>
+		<dd>{this.props.coin.price_btc}</dd>
+		<dt>Change (1 hour)</dt>
+		<dd>{this.props.coin.percent_change_1h}</dd>
+		<dt>Change (24 hour)</dt>
+		<dd>{this.props.coin.percent_change_24h}</dd>
+		<dt>Change (7 days)</dt>
+		<dd>{this.props.coin.percent_change_7d}</dd>
 		<dt>Total supply</dt>
-		<dd>{this.coin.total_supply}</dd>
+		<dd>{this.props.coin.total_supply}</dd>
 		<dt>Available supply</dt>
-		<dd>{this.coin.available_supply}</dd>
+		<dd>{this.props.coin.available_supply}</dd>
 	  </dl>
 	  </div>
     );
   }
 }
 
-export default CoinView;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    coin: state.coinsReducer.coins ? state.coinsReducer.coins.filter(coin => coin.id === ownProps.match.params.id)[0] : {},
+    isFetching: state.coinsReducer.isFetching,
+    lastUpdated: state.coinsReducer.lastUpdated
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(CoinView));

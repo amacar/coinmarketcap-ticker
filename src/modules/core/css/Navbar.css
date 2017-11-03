@@ -25,7 +25,7 @@
 }
 
 .navbar li a:hover:not(.active) {
-  color: #222;
+  color: #61dafb;
 }
 
 .navbar li a.active {

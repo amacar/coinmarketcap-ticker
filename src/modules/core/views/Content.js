@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import Settings from '../../settings/Settings';
 import CoinList from '../../crypto-market/CoinList';
 import CoinView from '../../crypto-market/CoinView';
@@ -20,4 +20,4 @@ class Content extends Component {
   }
 }
 
-export default Content;
+export default withRouter(Content);

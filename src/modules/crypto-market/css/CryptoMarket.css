@@ -1,0 +1,38 @@
+.coin-list {
+  margin: 10px auto 10px auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.coin-list th, .coin-list td {
+  padding: 5px 10px 5px 5px;
+}
+
+.coin-list tbody tr:nth-child(even) {
+  background: #f5f5f5;
+}
+
+.coin-list tbody tr:nth-child(odd) {
+  background: #eceaea;
+}
+
+.coin-list tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 5px;
+}
+
+.coin-list tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 5px;
+}
+
+.coin-list tbody tr:first-child td:first-child {
+  border-top-left-radius: 5px;
+}
+
+.coin-list tbody tr:first-child td:last-child {
+  border-top-right-radius: 5px;
+}
+
+.coin-list tbody tr:hover {
+  background: #daf8ff;
+  cursor: pointer;
+}
