@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { NavLink, Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
+import CustomNavLink from '../components/CustomNavLink';
 import '../css/Navbar.css';
 
 class Navbar extends Component {
@@ -8,7 +9,7 @@ class Navbar extends Component {
 	  <div className="navbar">
         <ul>
           <li><NavLink exact to='/' activeClassName="active">Top 100 Cryptocurrency</NavLink></li>
-          <li><Link to={{pathname: '/settings', state: { prevPath: this.props.location.pathname }}} activeClassName="active">Settings</Link></li>
+		  <li><CustomNavLink pathname='/settings' name='Settings' /></li>
         </ul>
 	  </div>
     );
