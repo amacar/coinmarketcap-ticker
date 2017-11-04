@@ -11,14 +11,10 @@ export const receiveCoins = (json) => ({
   receivedAt: Date.now()
 })
 
-const fetchCoins = (fiat, limit) => dispatch => {
+export const fetchCoins = (fiat, limit) => dispatch => {
 	console.log("fetch", fiat, limit);
   dispatch(requestCoins());
   return fetch(`https://api.coinmarketcap.com/v1/ticker/?convert=${fiat}&limit=${limit}`)
     .then(response => response.json())
     .then(json => dispatch(receiveCoins(json)))
-}
-
-export const fetchCoinsIfNeeded = (fiat, limit) => (dispatch, getState) => {
-  return dispatch(fetchCoins(fiat, limit));
 }

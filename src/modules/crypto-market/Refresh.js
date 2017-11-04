@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchCoinsIfNeeded } from '../core/actions/coinActions'
+import { fetchCoins } from '../core/actions/coinActions'
 import './css/Refresh.css';
 
 class Refresh extends Component {
@@ -14,7 +14,7 @@ class Refresh extends Component {
   refresh(e) {
     e.preventDefault();
 	const { dispatch, fiat, limit } = this.props
-    dispatch(fetchCoinsIfNeeded(fiat, limit));
+    dispatch(fetchCoins(fiat, limit));
   }
 	
   render() {

@@ -20,19 +20,19 @@ class CoinView extends Component {
 		  <dt>Symbol</dt>
 		  <dd>{coin.symbol}</dd>
 		  <dt>Price</dt>
-		  <dd>{coin.price_usd}</dd>
+		  <dd>{coin['price_' + this.props.fiatLower]} {this.props.fiat}</dd>
 		  <dt>24h Volume</dt>
-		  <dd>{coin['24h_volume_usd']}</dd>
+		  <dd>{coin['24h_volume_' + this.props.fiatLower]} {this.props.fiat}</dd>
 		  <dt>Market Cap</dt>
-		  <dd>{coin.market_cap_usd}</dd>
+		  <dd>{coin['market_cap_' + this.props.fiatLower]} {this.props.fiat}</dd>
 		  <dt>Price (BTC)</dt>
 		  <dd>{coin.price_btc}</dd>
 		  <dt>Change (1 hour)</dt>
-		  <dd className={coin.percent_change_1h >= 0 ? 'positive' : 'negative'}>{coin.percent_change_1h}</dd>
+		  <dd className={coin.percent_change_1h >= 0 ? 'positive' : 'negative'}>{coin.percent_change_1h} %</dd>
 		  <dt>Change (24 hour)</dt>
-		  <dd className={coin.percent_change_24h >= 0 ? 'positive' : 'negative'}>{coin.percent_change_24h}</dd>
+		  <dd className={coin.percent_change_24h >= 0 ? 'positive' : 'negative'}>{coin.percent_change_24h} %</dd>
 		  <dt>Change (7 days)</dt>
-		  <dd className={coin.percent_change_7d >= 0 ? 'positive' : 'negative'}>{coin.percent_change_7d}</dd>
+		  <dd className={coin.percent_change_7d >= 0 ? 'positive' : 'negative'}>{coin.percent_change_7d} %</dd>
 		  <dt>Total supply</dt>
 		  <dd>{coin.total_supply}</dd>
 		  <dt>Available supply</dt>
@@ -47,7 +47,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     coins: state.coinsReducer.coins,
     isFetching: state.coinsReducer.isFetching,
-    lastUpdated: state.coinsReducer.lastUpdated
+    lastUpdated: state.coinsReducer.lastUpdated,
+	fiat: state.filterReducer.fiat,
+	fiatLower: state.filterReducer.fiat.toLowerCase()
   }
 }
 

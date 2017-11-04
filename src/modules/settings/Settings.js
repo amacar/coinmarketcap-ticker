@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import {FIAT_ENUM} from '../core/enums/FiatEnum'
-import { fetchCoinsIfNeeded } from '../core/actions/coinActions'
+import { fetchCoins } from '../core/actions/coinActions'
 import { selectFiat } from '../core/actions/filterActions'
 
 class Settings extends Component {
@@ -20,7 +20,7 @@ class Settings extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.fiat !== this.props.fiat) {
       const { dispatch, fiat, limit } = nextProps
-      dispatch(fetchCoinsIfNeeded(fiat, limit));
+      dispatch(fetchCoins(fiat, limit));
     }
   }
   

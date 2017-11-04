@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchCoinsIfNeeded } from './actions/coinActions'
+import { fetchCoins } from './actions/coinActions'
 import './css/App.css';
 import Header from './views/Header';
 import Navbar from './views/Navbar';
@@ -11,7 +11,7 @@ class App extends Component {
 	
   componentDidMount() {
     const { dispatch, fiat, limit } = this.props
-    dispatch(fetchCoinsIfNeeded(fiat, limit));
+    dispatch(fetchCoins(fiat, limit));
   }
 	
   render() {
