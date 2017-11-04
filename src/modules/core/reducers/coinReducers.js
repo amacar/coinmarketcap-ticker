@@ -8,13 +8,11 @@ const coins = (state, action) => {
       return {
         ...state,
         isFetching: true,
-        didInvalidate: false
       }
     case RECEIVE_COINS:
       return {
         ...state,
         isFetching: false,
-        didInvalidate: false,
         coins: action.coins,
         lastUpdated: action.receivedAt
       }

@@ -1,5 +1,6 @@
 export const REQUEST_COINS = 'REQUEST_COINS'
 export const RECEIVE_COINS = 'RECEIVE_COINS'
+const BASE_API_URL = 'https://api.coinmarketcap.com/v1/'
 
 export const requestCoins = () => ({
   type: REQUEST_COINS,
@@ -12,9 +13,8 @@ export const receiveCoins = (json) => ({
 })
 
 export const fetchCoins = (fiat, limit) => dispatch => {
-	console.log("fetch", fiat, limit);
   dispatch(requestCoins());
-  return fetch(`https://api.coinmarketcap.com/v1/ticker/?convert=${fiat}&limit=${limit}`)
+  return fetch(BASE_API_URL + `ticker/?convert=${fiat}&limit=${limit}`)
     .then(response => response.json())
     .then(json => dispatch(receiveCoins(json)))
 }

@@ -8,10 +8,6 @@ export const filterReducer = (state = {}, action) => {
 	  return Object.assign({}, state, {
             fiat: action.fiat
           })
-	  /* {
-	    ...state,
-		fiat: action.fiat
-	  } */
     case SELECT_LIMIT:
       return {
 	    ...state,

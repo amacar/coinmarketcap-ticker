@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { fetchCoins } from '../core/actions/coinActions'
+import Back from '../core/components/Back'
 import './css/Refresh.css';
 
 class Refresh extends Component {
@@ -16,6 +17,8 @@ class Refresh extends Component {
 	const { dispatch, fiat, limit } = this.props
     dispatch(fetchCoins(fiat, limit));
   }
+  
+  
 	
   render() {
     return (
@@ -23,8 +26,11 @@ class Refresh extends Component {
 	    <button className="refresh" type="button" onClick={this.refresh}>
 	      Refresh
         </button>
+		<Back />
 		<br/>
-		Last updated: {new Date(this.props.lastUpdated).toLocaleString()}
+		  {this.props.lastUpdated && 
+		    <div>Last updated: {new Date(this.props.lastUpdated).toLocaleString()}</div>
+		  }
 	  </div>
     );
   }

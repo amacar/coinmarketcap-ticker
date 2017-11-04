@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 class CoinRow extends Component {
@@ -11,14 +11,17 @@ class CoinRow extends Component {
 	
   routeToCoinView(e) {
     e.preventDefault();
-
-    this.context.router.transitionTo('/coin')
+	const locationObject = {
+	  pathname: '/coin/' + this.props.coin.id, 
+	  state: { prevPath: this.props.location.pathname }
+	}
+    this.props.history.push(locationObject);
   }
 	
   render() {
     return (
-	  <tr>
-	    <td><Link to={`/coin/${this.props.coin.id}`}>{this.props.coin.rank}</Link></td>
+	  <tr onClick={this.routeToCoinView}>
+	    <td>{this.props.coin.rank}</td>
 		<td>{this.props.coin.symbol}</td>
 		<td>{this.props.coin['price_' + this.props.fiatLower]} {this.props.fiat}</td>
 		<td className={this.props.coin.percent_change_24h >= 0 ? 'positive' : 'negative'}>{this.props.coin.percent_change_24h} %</td>

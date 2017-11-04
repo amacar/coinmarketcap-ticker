@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import {FIAT_ENUM} from '../core/enums/FiatEnum'
 import { fetchCoins } from '../core/actions/coinActions'
 import { selectFiat } from '../core/actions/filterActions'
+import Back from '../core/components/Back'
+import './css/Settings.css'
 
 class Settings extends Component {
     constructor(props) {
@@ -12,9 +14,10 @@ class Settings extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
+  handleChange (event) {
 	const { dispatch } = this.props
 	dispatch(selectFiat(event.target.value));
+	console.log(this.props.location.state.prevPath)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,7 +42,10 @@ class Settings extends Component {
   
   render() {  
     return (
-	  <div>
+	  <div className="settings">
+	    <div>
+	      <Back />
+		</div>
         <label>
           Select currency:
           <select value={this.props.fiat} onChange={this.handleChange}>
