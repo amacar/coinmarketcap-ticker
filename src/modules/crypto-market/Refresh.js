@@ -13,8 +13,8 @@ class Refresh extends Component {
 	
   refresh(e) {
     e.preventDefault();
-	const { dispatch } = this.props
-    dispatch(fetchCoinsIfNeeded());
+	const { dispatch, fiat, limit } = this.props
+    dispatch(fetchCoinsIfNeeded(fiat, limit));
   }
 	
   render() {
@@ -33,7 +33,9 @@ class Refresh extends Component {
 const mapStateToProps = state => {
   return {
     isFetching: state.coinsReducer.isFetching,
-    lastUpdated: state.coinsReducer.lastUpdated
+    lastUpdated: state.coinsReducer.lastUpdated,
+	fiat: state.filterReducer.fiat,
+    limit: state.filterReducer.limit
   }
 }
 

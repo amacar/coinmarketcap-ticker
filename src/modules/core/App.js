@@ -10,8 +10,8 @@ import Content from './views/Content';
 class App extends Component {
 	
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(fetchCoinsIfNeeded());
+    const { dispatch, fiat, limit } = this.props
+    dispatch(fetchCoinsIfNeeded(fiat, limit));
   }
 	
   render() {
@@ -25,4 +25,11 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect()(App));
+const mapStateToProps = state => {
+  return {
+    fiat: state.filterReducer.fiat,
+    limit: state.filterReducer.limit
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(App));

@@ -9,8 +9,18 @@ import reducer from './modules/core/reducers/combine'
 import App from './modules/core/App';
 import registerServiceWorker from './modules/core/registerServiceWorker';
 
+const initialState = {
+  coinsReducer: {
+    coins: [],
+  },
+  filterReducer : {
+    fiat: 'USD',
+	limit: 100
+  }
+};
+
 const store = createStore(
-  reducer,
+  reducer, initialState, 
   applyMiddleware(thunk)
 )
 
