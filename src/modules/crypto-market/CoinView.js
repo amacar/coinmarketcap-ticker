@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import Refresh from './Refresh';
+import Refresh from '../core/components/Refresh';
 
 class CoinView extends Component {
 	
@@ -46,8 +46,6 @@ class CoinView extends Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     coins: state.coinsReducer.coins,
-    isFetching: state.coinsReducer.isFetching,
-    lastUpdated: state.coinsReducer.lastUpdated,
 	fiat: state.filterReducer.fiat,
 	fiatLower: state.filterReducer.fiat.toLowerCase()
   }

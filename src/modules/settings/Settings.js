@@ -14,9 +14,9 @@ class Settings extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange (event) {
+  handleChange(e) {
 	const { dispatch } = this.props
-	dispatch(selectFiat(event.target.value));
+	dispatch(selectFiat(e.target.value));
 	console.log(this.props.location.state.prevPath)
   }
 

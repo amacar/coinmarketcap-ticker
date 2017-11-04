@@ -1,6 +1,4 @@
-import {
-  REQUEST_COINS, RECEIVE_COINS
-} from '../actions/coinActions'
+import { REQUEST_COINS, RECEIVE_COINS } from '../actions/coinActions'
 
 const coins = (state, action) => {
   switch (action.type) {

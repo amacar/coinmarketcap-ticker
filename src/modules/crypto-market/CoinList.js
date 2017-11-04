@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import CoinRow from './CoinRow';
-import Refresh from './Refresh';
+import Refresh from '../core/components/Refresh';
 import './css/CryptoMarket.css';
 
 class CoinList extends Component {

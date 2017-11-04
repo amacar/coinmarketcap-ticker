@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { fetchCoins } from '../core/actions/coinActions'
-import Back from '../core/components/Back'
-import './css/Refresh.css';
+import { fetchCoins } from '../actions/coinActions'
+import Back from './Back'
 
 class Refresh extends Component {
 	constructor(props) {
@@ -17,13 +16,15 @@ class Refresh extends Component {
 	const { dispatch, fiat, limit } = this.props
     dispatch(fetchCoins(fiat, limit));
   }
-  
-  
 	
   render() {
+	const style = {
+      backgroundColor: '#4CAF50',
+    };  
+	  
     return (
 	  <div>
-	    <button className="refresh" type="button" onClick={this.refresh}>
+	    <button style={style} type="button" onClick={this.refresh}>
 	      Refresh
         </button>
 		<Back />

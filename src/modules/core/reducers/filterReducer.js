@@ -1,6 +1,4 @@
-import {
-  SELECT_FIAT, SELECT_LIMIT
-} from '../actions/filterActions'
+import { SELECT_FIAT, SELECT_LIMIT } from '../actions/filterActions'
 
 export const filterReducer = (state = {}, action) => {
   switch (action.type) {
@@ -9,10 +7,9 @@ export const filterReducer = (state = {}, action) => {
             fiat: action.fiat
           })
     case SELECT_LIMIT:
-      return {
-	    ...state,
-		limit: action.limit
-	  }
+      return Object.assign({}, state, {
+            limit: action.limit
+          })
     default:
       return state
   }
