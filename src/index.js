@@ -7,7 +7,6 @@ import { Provider } from "react-redux";
 import "./index.css";
 import reducer from "./modules/core/reducers/combine";
 import App from "./modules/core/App";
-import registerServiceWorker from "./modules/core/registerServiceWorker";
 
 const initialState = {
   coinsReducer: {
@@ -29,4 +28,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
