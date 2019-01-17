@@ -16,11 +16,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+	"format": "prettier-eslint \"src/**/*.js\" --write"
   },
   "devDependencies": {
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "prettier-eslint-cli": "^4.7.1",
     "redux-mock-store": "^1.3.0"
   },
   "browserslist": [
