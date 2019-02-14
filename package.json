@@ -17,7 +17,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-	"format": "prettier-eslint \"src/**/*.js\" --write"
+    "format": "prettier-eslint \"src/**/*.js\" --write"
   },
   "devDependencies": {
     "enzyme": "^3.8.0",
